@@ -1,0 +1,36 @@
+{
+  "name": "assignment4",
+  "version": "1.0.0",
+  "description": "CS554 assignment 4",
+  "main": "webpack.config.js",
+  "scripts": {
+    "start": "webpack-dev-server --open --mode development",
+    "build": "webpack"
+  },
+  "author": "Anthony Ciccone 10420930",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.1.0",
+    "@babel/plugin-syntax-class-properties": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "css-loader": "^1.0.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.23.0",
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.1.8"
+  },
+  "dependencies": {
+    "bootstrap": "^4.1.3",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.14.4",
+    "react": "^16.5.2",
+    "react-dom": "^16.8.4",
+    "reactstrap": "^7.1.0",
+    "showdown": "^1.9.0"
+  }
+}

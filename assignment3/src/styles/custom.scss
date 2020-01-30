@@ -1,0 +1,72 @@
+@import "variables";
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+#sidenavbar {
+    width: 200px;
+    position: fixed;
+    background-color: orange;
+    color: #fff;
+    transition: all 0.4s;
+}
+
+#topnavbar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: auto;
+    z-index: 999;
+    background-color: orange;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #cyan;
+    border-color: #cyan;
+}
+
+#subtitle{
+    text-decoration: underline;
+    color: #fff;
+}
+
+
+#page {
+    width: calc(100% - 150px);
+    padding: 40px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+
+img{
+    height: 200px;
+}
+
+
+#page {
+    @media screen and (max-width: 768px) {
+        width: 100%;
+        top:auto;
+    }
+}
+
+.sidenavbar{
+    display: flex;
+    width: 100%;
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
+}
+
+#topnavbar{
+    @media screen and (min-width: 768px) {
+        display: none;
+      }
+
+}

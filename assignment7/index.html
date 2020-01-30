@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Assignment 7</title>
+    </head>
+    <body>
+
+        <h1>Assignment 7, Searching for images</h1>
+
+        <form>
+            <label for "usernameID"> UserName: </label>
+            <input name = "username" type = "text" id="usernameID"/>
+            <br>
+            <label for "queryID"> Search Image: </label>
+            <input name = "query" type = "text" id="queryID"/>
+            <br>
+            <label for "messageID"> Message: </label>
+            <input name="message" type="text" id="messageID"/>
+            <br>
+            <input type = "submit">
+        </form>
+
+        <ul id="searchList"></ul>
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.1.js">
+        integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+        crossorigin="anonymous"></script>
+        <script>
+            $(function() {
+                var socket = io();
+                $('form').submit(function(){
+                    const responseData = {
+                    "username":$('#usernameID').val(),
+                    "query":$('#queryID').val(),
+                    "message":$('#messageID').val()
+                    }
+                    socket.emit("post", responseData);
+                    document.getElementById("usernameID").readOnly = true;
+                    document.getElementById("usernameID").disabled = true;
+                    $('#queryID').val('');
+                    $('#messageID').val('');
+                    return false;
+                });
+
+                socket.on("create-image", message => {
+                    var newImage = message.response.imageURL;
+                    var username = message.response.username;
+                    var message = message.response.message;
+                    $('#searchList').prepend($('<li> User: '+username + '<br> <img alt="New Image" src=" '+newImage +'"/> <br> Message: '+message + '</li> <br>  '));
+                })
+            });
+        </script>
+    </body>
+</html>
